@@ -9,8 +9,10 @@ class StyledButton extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return OutlinedButton(
+    return OutlinedButton.icon(
         onPressed: () => {debugPrint("Starting quiz")},
-        child: StyledText(text, fontSize));
+        style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
+        icon: const Icon(Icons.arrow_right_alt),
+        label: StyledText(text, fontSize));
   }
 }
