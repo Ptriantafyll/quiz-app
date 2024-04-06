@@ -13,6 +13,7 @@ class StartPage extends StatelessWidget {
         Image.asset(
           'assets/images/quiz-logo.png',
           width: 280,
+          color: const Color.fromARGB(150, 255, 255, 255),
         ),
         const SizedBox(height: 50),
         const StyledText('Learn flutter the fun way!', 28),
