@@ -20,9 +20,7 @@ class GradientContainer extends StatelessWidget {
           end: endAlignment,
         ),
       ),
-      child: const Center(
-        child: StartPage()
-      ),
+      child: const Center(child: StartPage()),
     );
   }
 }
