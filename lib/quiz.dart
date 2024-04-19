@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/start_page.dart';
+import 'package:quiz_app/gradient_container.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -13,6 +13,14 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   @override
   Widget build(context) {
-    return const StartPage();
+    return const MaterialApp(
+        home: Scaffold(
+      body: GradientContainer(
+        gradientColors: [
+          Color.fromARGB(255, 187, 170, 212),
+          Color.fromARGB(255, 74, 9, 226)
+        ],
+      ),
+    ));
   }
 }
