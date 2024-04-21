@@ -3,7 +3,9 @@ import 'package:quiz_app/styled_button.dart';
 import 'package:quiz_app/styled_text.dart';
 
 class StartPage extends StatelessWidget {
-  const StartPage({super.key});
+  const StartPage(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
   Widget build(context) {
@@ -18,7 +20,7 @@ class StartPage extends StatelessWidget {
         const SizedBox(height: 50),
         const StyledText('Learn flutter the fun way!', 28),
         const SizedBox(height: 50),
-        const StyledButton('Start Quiz', 15)
+        StyledButton(startQuiz, 'Start Quiz', 15)
       ],
     );
   }
