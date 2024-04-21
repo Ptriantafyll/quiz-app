@@ -18,25 +18,32 @@ class GradientContainer extends StatefulWidget {
 }
 
 class _GradientContainerState extends State<GradientContainer> {
-  Widget activePage = const StartPage();
+  String activePage = 'start-screen';
 
   void switchPage() {
     setState(() {
-      activePage = const QuestionsPage();
+      activePage = 'questions-screen';
     });
-  } 
+  }
 
   @override
   Widget build(context) {
+    Widget pageWidget = StartPage(switchPage);
+
+    if (activePage == 'start-screen') {
+      pageWidget = StartPage(switchPage);
+    } else {
+      pageWidget = const QuestionsPage();
+    }
+
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: widget.gradientColors,
-          begin: startAlignment,
-          end: endAlignment,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: widget.gradientColors,
+            begin: startAlignment,
+            end: endAlignment,
+          ),
         ),
-      ),
-      child: Center(child: activePage),
-    );
+        child: Center(child: pageWidget));
   }
 }
