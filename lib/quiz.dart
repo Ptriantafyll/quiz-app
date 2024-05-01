@@ -14,13 +14,14 @@ class _QuizState extends State<Quiz> {
   @override
   Widget build(context) {
     return const MaterialApp(
-        home: Scaffold(
-      body: GradientContainer(
-        gradientColors: [
-          Color.fromARGB(255, 187, 170, 212),
-          Color.fromARGB(255, 74, 9, 226)
-        ],
+      home: Scaffold(
+        body: GradientContainer(
+          gradientColors: [
+            Color.fromARGB(255, 187, 170, 212),
+            Color.fromARGB(255, 74, 9, 226)
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
