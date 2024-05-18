@@ -3,6 +3,7 @@ import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/questions_page.dart';
 import 'package:quiz_app/start_page.dart';
 import 'package:flutter/material.dart';
+import 'package:quiz_app/results_page.dart';
 
 const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
@@ -33,10 +34,16 @@ class _GradientContainerState extends State<GradientContainer> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        activePage = 'start-screen'; // TODO: add results page
-        selectedAnswers = [];
+        activePage = 'results-screen';
       });
     }
+  }
+
+  void restartQuiz() {
+    selectedAnswers = [];
+    setState(() {
+      activePage = 'start-screen';
+    });
   }
 
   @override
@@ -45,9 +52,14 @@ class _GradientContainerState extends State<GradientContainer> {
 
     if (activePage == 'start-screen') {
       pageWidget = StartPage(switchPage);
-    } else {
+    } else if (activePage == 'questions-screen') {
       pageWidget = QuestionsPage(
         onSelectAnswer: chooseAnswer,
+      );
+    } else if (activePage == 'results-screen') {
+      pageWidget = ResultsPage(
+        chosenAnswers: selectedAnswers,
+        onRestartQuizTap: restartQuiz,
       );
     }
 
